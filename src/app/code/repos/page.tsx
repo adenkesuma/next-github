@@ -2,7 +2,7 @@ import Link from "next/link";
 import { FaStar, FaCodeBranch, FaEye } from "react-icons/fa";
 
 export const metadata = {
-    title: 'Repository',
+    title: 'Repositories',
     description: 'Repository page'
 }
 
@@ -17,6 +17,9 @@ interface ReposProps {
 
 async function fetchRepos() {
     const response = await fetch('https://api.github.com/users/adenkesuma/repos');
+
+    await new Promise((resolve) => setTimeout(resolve, 3000))
+
     const repos = await response.json();
     return repos;
 }
@@ -29,10 +32,10 @@ const Repos = async ({}) => {
             <h1 className="mb-6 font-bold text-[40px]">Repositories</h1>
             <ul className="flex flex-col gap-6">
                 {repos.map((repo : ReposProps) => (
-                    <li className="bg-zinc-200 rounded-lg px-6 py-4" key={repo.id}>
+                    <li className="bg-slate-900 text-white rounded-lg px-6 py-4" key={repo.id}>
                         <Link href={`/code/repos/${repo.name}`}>
-                            <h3 className="font-bold text-[23px]">{ repo.name }</h3>
-                            <p className="text-[16px] font-semibold text-zinc-600 mb-6">{ repo.description }</p>
+                            <h3 className="font-semibold text-[24px]">{ repo.name }</h3>
+                            <p className="text-[16px] font-semibold text-zinc-200 mb-6">{ repo.description }</p>
                             <div className="flex justify-between items-center">
                                 <div className="flex items-center gap-2">
                                     <FaStar /> <span>{ repo.stargazers_count }</span>
