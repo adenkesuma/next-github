@@ -1,0 +1,20 @@
+import { FC } from "react";
+interface AboutProps {};
+
+export const metadata = {
+    title: "About",
+    description: "About page"
+}
+
+const About: FC<AboutProps> = ({}) => {
+  return (
+    <main>
+      <h1>About</h1>
+      <p>
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nam quod fugiat soluta, obcaecati ab quibusdam! Natus repellat aut ipsum. Delectus culpa vitae sapiente, fugiat ratione eaque aperiam esse assumenda sint quidem nemo, necessitatibus aliquam iste ducimus incidunt hic officiis minus corporis repellat molestias adipisci harum? Mollitia odio minus voluptas distinctio.
+      </p>
+    </main>
+  )
+}
+
+export default About;
