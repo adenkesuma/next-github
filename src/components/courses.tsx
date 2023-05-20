@@ -10,7 +10,7 @@ type CourseType = {
     link: string;
 }
 
-const Courses = async ({ courses }) => {
+const Courses: FC<CourseType> = ({ courses }) => {
 
     return ( 
         <div>

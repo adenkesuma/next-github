@@ -4,9 +4,10 @@ import { FC } from "react";
 import Loading from "./loading";
 import Link from "next/link";
 import Courses from "@/components/courses";
+import Search from "@/components/search";
 interface HomeProps {};
 
-const Home = async ({}) => {
+const Home = () => {
   const [courses, setCourses] = useState([]);
   const [loading, setLoading] = useState(true);
 
@@ -28,7 +29,8 @@ const Home = async ({}) => {
   return (
     <div>
       <h1>Homepage</h1>
-      <Courses />
+      <Search getSearchResults={(results) => setCourses(results)}/>
+      <Courses courses={courses}/>
     </div>
   )
 }
