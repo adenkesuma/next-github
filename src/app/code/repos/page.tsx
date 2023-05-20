@@ -16,7 +16,11 @@ interface ReposProps {
 };
 
 async function fetchRepos() {
-    const response = await fetch('https://api.github.com/users/adenkesuma/repos');
+    const response = await fetch('https://api.github.com/users/adenkesuma/repos', {
+        next: {
+            revalidate: 60
+        }
+    });
 
     await new Promise((resolve) => setTimeout(resolve, 3000))
 
